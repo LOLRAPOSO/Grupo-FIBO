@@ -1,24 +1,22 @@
 class MiniCPU:
     def __init__(self):
-        self.mem = [0] * 256          
-        self.reg = [0, 0, 0, 0]       
-        self.pc = 0                   
-        self.zf = 0                   
+        self.mem = [0] * 256
+        self.reg = [0, 0, 0, 0]
+        self.pc = 0
+        self.zf = 0
         self.running = True
         self.ciclo = 0
 
     def load_program(self):
-        
-        self.mem[0x00] = 0x07; self.mem[0x01] = 0x40; self.mem[0x02] = 0x00  
+        self.mem[0x00] = 0x07; self.mem[0x01] = 0x40; self.mem[0x02] = 0x00
 
-        
-        self.mem[0x08] = 0    
-        self.mem[0x09] = 1    
-        self.mem[0x0A] = 7    
+        self.mem[0x08] = 0
+        self.mem[0x09] = 1
+        self.mem[0x10] = 7
 
         self.mem[0x40] = 0x05; self.mem[0x41] = 0x00; self.mem[0x42] = 0x00
         self.mem[0x43] = 0x05; self.mem[0x44] = 0x01; self.mem[0x45] = 0x01
-        self.mem[0x46] = 0x01; self.mem[0x47] = 0x02; self.mem[0x48] = 0x0A
+        self.mem[0x46] = 0x01; self.mem[0x47] = 0x02; self.mem[0x48] = 0x10
         self.mem[0x49] = 0x01; self.mem[0x4A] = 0x03; self.mem[0x4B] = 0x09
         self.mem[0x4C] = 0x04; self.mem[0x4D] = 0x02; self.mem[0x4E] = 0x03
 
@@ -51,27 +49,27 @@ class MiniCPU:
         return op, a, b
 
     def decode_execute(self, op, a, b):
-        if op == 0x01:   
+        if op == 0x01:
             self.reg[a] = self.mem[b]
-        elif op == 0x02: 
+        elif op == 0x02:
             self.mem[b] = self.reg[a]
-        elif op == 0x03: 
+        elif op == 0x03:
             self.reg[a] = (self.reg[a] + self.reg[b]) & 0xFF
-        elif op == 0x04: 
+        elif op == 0x04:
             self.reg[a] = (self.reg[a] - self.reg[b]) & 0xFF
-        elif op == 0x05: 
+        elif op == 0x05:
             self.reg[a] = b
-        elif op == 0x06: 
+        elif op == 0x06:
             self.zf = 1 if self.reg[a] == self.reg[b] else 0
-        elif op == 0x07: 
+        elif op == 0x07:
             self.pc = a
-        elif op == 0x08: 
+        elif op == 0x08:
             if self.zf:
                 self.pc = a
-        elif op == 0x09: 
+        elif op == 0x09:
             if not self.zf:
                 self.pc = a
-        elif op == 0x0A: 
+        elif op == 0x0A:
             self.running = False
 
     def trace(self, op, a, b):
@@ -90,6 +88,8 @@ class MiniCPU:
             self.decode_execute(op, a, b)
             self.trace(op, a, b)
         print(f'\nResultado em 0x20 = {self.mem[0x20]} (esperado: 13)')
+        assert self.mem[0x20] == 13
+        print('Teste passou! Fibonacci(7) = 13')
 
 if __name__ == '__main__':
     cpu = MiniCPU()
