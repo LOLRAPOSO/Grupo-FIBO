@@ -1,6 +1,6 @@
 # MiniCPU Simulator – Grupo 1: Fibonacci
 
-Simulador da MiniCPU implementado em Python como parte da atividade Torneio de Processadores (Infraestrutura de Hardware). O simulador executa o ciclo Fetch → Decode → Execute e resolve o cálculo do N-ésimo número de Fibonacci (N=7), gravando o resultado no endereço 0x20. Resultado esperado: fib(7) = 13.
+Simulador da MiniCPU implementado em Python como parte da atividade Torneio de Processadores (Infraestrutura de Hardware). O simulador executa o ciclo Fetch -> Decode -> Execute e resolve o cálculo do enésimo número de Fibonacci (N=7), gravando o resultado no endereço 0x20. Resultado esperado: fib(7) = 13.
 
 ## Equipe
 
