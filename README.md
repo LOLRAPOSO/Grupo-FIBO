@@ -7,7 +7,7 @@ Simulador da MiniCPU implementado em Python como parte da atividade Torneio de P
 Ana Beatriz
 Daniel Andrade
 Eduardo Boxwell
-Gustavo Resende
+Gustavo Rezende
 Juan Riquelme
 Matheus Lima
 Rafael Pimentel
