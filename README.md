@@ -4,15 +4,15 @@ Simulador da MiniCPU implementado em Python como parte da atividade Torneio de P
 
 ## Equipe
 
-Ana Beatriz
-Daniel Andrade
-Eduardo Boxwell
-Gustavo Rezende
-Juan Riquelme
-Matheus Lima
-Rafael Pimentel
-Victor Carraly
-Walter Maia
+Ana Beatriz  
+Daniel Andrade  
+Eduardo Boxwell  
+Gustavo Rezende  
+Juan Riquelme  
+Matheus Lima  
+Rafael Pimentel  
+Victor Carraly  
+Walter Maia  
 
 ## Como executar
 
